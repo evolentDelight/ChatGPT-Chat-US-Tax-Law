@@ -18,36 +18,21 @@ function extractPrompt(){
 }
 
 //AJAX to ChatGPT
+//Call webserver to process Prompt
 async function inquirePrompt(){
   const prompt = extractPrompt();
 
   if(prompt){//REST call
-    let response = {
-      "model":"gpt-3.5-turbo",
-      "messages":[
-        {
-          "role": "system",//Prompt Engineering
-          "content": "You are a chat assistant representing Deloitte Auditor Enterprise. Please answer questions regarding only US Tax Law. Disregard any other topic and politely decline if user requests."
-        },
-        {
-          "role":"user",
-          "content": `${prompt}`
-        }
-      ]
-    }
-
-    await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.CHATGPT_API_KEY}`
-      },
-      body: JSON.stringify(response)
-    })
-      .then((response)=>response.json())
-      .then((json)=>{//Handle Response
-        AI_Response(json.choices[0].message.content)
+    await fetch("localhost:3000/chat", {
+      method: 'GET',
+      body:JSON.stringify({
+        "prompt": prompt
       })
+      .then((response) => response.json())
+      .then((json) =>{
+        AI_Response(json.response)
+      })
+    })
   }
 }
 
