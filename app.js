@@ -41,9 +41,9 @@ app.post("/", async (req, res) =>{
   })
     .then((response)=>response.json())
     .then((json)=>{//Handle Response
-      const data = JSON.stringify({
+      const data = {
         "response": json.choices[0].message.content
-      })
+      }
       res.send({data})
     })
 })
