@@ -43,6 +43,7 @@ app.post("/chat", async (req, res) =>{
       const data = {
         "response": json.choices[0].message.content
       }
+      console.log(data)
       res.send({data})
     })
 })
