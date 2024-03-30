@@ -33,7 +33,7 @@ async function inquirePrompt(){
       })})
       .then((response) => response.json())
       .then((json) =>{
-        console.log("🚀 ~ .then ~ json.data.response:", json.data.response)
+        console.log("🚀 ~ .then ~ json.data.response:", json.data)
         AI_Response(json.data.response)
       })   
   }
