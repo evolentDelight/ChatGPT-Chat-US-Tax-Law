@@ -14,6 +14,7 @@ app.get("/", (req, res) =>
 app.get("/chat", async (req, res) =>{
   //Process 
   let prompt = req.body.prompt;
+  console.log("🚀 ~ app.get ~ prompt:", prompt)
 
   let response = {
     "model":"gpt-3.5-turbo",
