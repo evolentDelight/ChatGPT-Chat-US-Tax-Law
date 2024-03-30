@@ -40,7 +40,7 @@ app.post("/chat", async (req, res) =>{
   })
     .then((response)=>response.json())
     .then((json)=>{//Handle Response
-      const data = {
+      const data = JSON.stringify{
         "response": json.choices[0].message.content
       }
       console.log(data)
