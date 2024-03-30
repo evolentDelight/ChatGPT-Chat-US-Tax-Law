@@ -14,10 +14,8 @@ app.get("/", (req, res) =>
 );
 
 app.post("/", async (req, res) =>{
-  //Process 
-  console.log("🚀 ~ app.get ~ prompt:", req.body)
+  //Process the prompt
   let prompt = req.body.prompt;
-  
 
   let response = {
     "model":"gpt-3.5-turbo",
@@ -46,9 +44,8 @@ app.post("/", async (req, res) =>{
       const data = JSON.stringify({
         "response": json.choices[0].message.content
       })
-      console.log(data)
       res.send({data})
     })
 })
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port);
