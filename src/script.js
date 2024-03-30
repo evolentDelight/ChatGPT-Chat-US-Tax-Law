@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 //When ChatGPT AI's response is received, load message onto front-end
 function AI_Response(response){
   const response_element = document.getElementById("response");
