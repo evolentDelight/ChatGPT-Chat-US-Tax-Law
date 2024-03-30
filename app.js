@@ -48,5 +48,5 @@ app.post("/chat", async (req, res) =>{
       res.send({data})
     })
 })
-
+console.log(process.env)
 app.listen(port, () => console.log(`Listening on port ${port}`));

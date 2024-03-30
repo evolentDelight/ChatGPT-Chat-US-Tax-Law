@@ -23,7 +23,7 @@ async function inquirePrompt(){
   const prompt = extractPrompt();
 
   if(prompt){//REST call
-    await fetch("localhost:3000/chat", {
+    await fetch("https://chatgpt-chat-us-tax-law.onrender.com/chat", {
       method: 'POST',
       body : JSON.stringify({
         "prompt": prompt
