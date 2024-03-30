@@ -11,7 +11,7 @@ app.get("/", (req, res) =>
   res.sendFile(__dirname + '/src/index.html')
 );
 
-app.get("/chat", async (req, res) =>{
+app.post("/chat", async (req, res) =>{
   //Process 
   let prompt = req.body.prompt;
   console.log("🚀 ~ app.get ~ prompt:", prompt)

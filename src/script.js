@@ -24,7 +24,7 @@ async function inquirePrompt(){
 
   if(prompt){//REST call
     await fetch("localhost:3000/chat", {
-      method: 'GET',
+      method: 'POST',
       body : JSON.stringify({
         "prompt": prompt
       })})
@@ -32,8 +32,8 @@ async function inquirePrompt(){
       .then((json) =>{
         AI_Response(json.response)
       })
-    }
   }
+}
 
 //Cancel Prompt by erasing prompt
 function cancelPrompt(){
