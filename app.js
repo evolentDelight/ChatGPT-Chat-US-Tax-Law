@@ -43,7 +43,7 @@ app.post("/chat", async (req, res) =>{
       const data = {
         "response": json.choices[0].message.content
       }
-      res.json({data})
+      res.send({data})
     })
 })
 
