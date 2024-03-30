@@ -23,7 +23,7 @@ async function inquirePrompt(){
   const prompt = extractPrompt();
 
   if(prompt){//REST call
-    await fetch("https://chatgpt-chat-us-tax-law.onrender.com/chat", {
+    await fetch("https://chatgpt-chat-us-tax-law.onrender.com/", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,8 +33,8 @@ async function inquirePrompt(){
       })})
       .then((response) => response.json())
       .then((json) =>{
-        console.log(json);
-        AI_Response(json.response)
+
+        AI_Response(json.data.response)
       })
   }
 }

@@ -13,7 +13,7 @@ app.get("/", (req, res) =>
   res.sendFile(__dirname + '/src/index.html')
 );
 
-app.post("/chat", async (req, res) =>{
+app.post("/", async (req, res) =>{
   //Process 
   console.log("🚀 ~ app.get ~ prompt:", req.body)
   let prompt = req.body.prompt;
@@ -50,5 +50,5 @@ app.post("/chat", async (req, res) =>{
       res.send({data})
     })
 })
-console.log(process.env)
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
